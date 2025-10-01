@@ -1,0 +1,107 @@
+<section class="section section--secondary" id="promo">
+  <div class="container">
+    <h2 class="section__head-title">ПОД НАШЕЙ ЗАЩИТОЙ</h2>
+    <p class="section__text">Протестируйте Solar appScreener бесплатно</p>
+    <div class="form" id="form">
+      <div class="form__wrapper">
+        <div class="field field--material">
+          <div class="field__panel">
+            <div class="field__body">
+              <div class="field__field">
+                <div class="field__area">
+                  <input class="field__control" id="material-field-1" type="text" placeholder=" " required>
+                  <label class="field__label" for="material-field-1">ФИО</label>
+                </div>
+                <div class="field__append">
+                  <button class="field__btn field__btn--clear" type="button" aria-label="Очистить поле ввода.">
+                    <svg class="field__icon-img" width="24" height="24" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#close-24"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field__content">
+            <p class="field__hint field__hint--error">Пожалуйста, введите вашу фамилию</p>
+          </div>
+        </div>
+        <div class="field field--material">
+          <div class="field__panel">
+            <div class="field__body">
+              <div class="field__field">
+                <div class="field__area">
+                  <input class="field__control" id="material-field-2" type="tel" placeholder="+7 (___) ___-__-__"
+                    required>
+                  <label class="field__label" for="material-field-2">Телефон</label>
+                </div>
+                <div class="field__append">
+                  <button class="field__btn field__btn--clear" type="button" aria-label="Очистить поле ввода.">
+                    <svg class="field__icon-img" width="24" height="24" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#close-24"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field__content">
+            <p class="field__hint field__hint--error">Пожалуйста, введите корректный номер телефона</p>
+          </div>
+        </div>
+        <div class="field field--material">
+          <div class="field__panel">
+            <div class="field__body">
+              <div class="field__field">
+                <div class="field__area">
+                  <input class="field__control" id="material-field-3" type="email" placeholder=" " required>
+                  <label class="field__label" for="material-field-3">E-mail</label>
+                </div>
+                <div class="field__append">
+                  <button class="field__btn field__btn--clear" type="button" aria-label="Очистить поле ввода.">
+                    <svg class="field__icon-img" width="24" height="24" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#close-24"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field__content">
+            <p class="field__hint field__hint--error">Пожалуйста, введите корректный email адрес</p>
+          </div>
+        </div>
+      </div>
+      <div class="form__footer form__footer--separated">
+        <div class="form__footer-content">
+          <div class="form-switcher form-switcher--disclaimer">
+            <label class="form-switcher__body">
+              <input id="input-2" type="checkbox" class="toggle toggle--checkbox-primary _error" />
+              <span class="form-switcher__label">
+                <a href="#" class="link">Согласие на&nbsp;получение последних новостей компании, сообщений рекламного
+                  и&nbsp;информационного характера.</a>
+              </span>
+            </label>
+          </div>
+          <div class="form-switcher form-switcher--disclaimer">
+            <label class="form-switcher__body">
+              <input id="input-3" type="checkbox" class="toggle toggle--checkbox-primary _error" />
+              <span class="form-switcher__label">
+                Нажимая &laquo;Отправить заявку&raquo;, вы&nbsp;даете согласие на&nbsp;обработку своих данных согласно
+                <a href="#" class="link">политике обработки персональных данных</a>.
+              </span>
+            </label>
+          </div>
+        </div>
+        <div class="form__footer-actions">
+          <button type="submit" class="form__footer-btn btn btn--primary btn--size-large" id="submit-button">
+            <span class="btn__label">Отправить заявку</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="success-message" class="success-msg">
+      <p class="success-msg__text">Мы&nbsp;получили вашу заявку и&nbsp;в&nbsp;ближайшее время свяжемся с&nbsp;вами</p>
+    </div>
+  </div>
+</section>

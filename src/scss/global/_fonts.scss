@@ -1,0 +1,21 @@
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto');
+  src:
+    url('/fonts/roboto/roboto-400.woff2') format('woff2'),
+    url('/fonts/roboto/roboto-400.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Tenor Sans');
+  src:
+    url('/fonts/tenorSans/TenorSans-Regular.woff2') format('woff2'),
+    url('/fonts/tenorSans/TenorSans-Regular.woff') format('woff');
+}

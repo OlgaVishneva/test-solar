@@ -1,0 +1,15 @@
+.success-msg {
+  --success-msg-color: var(--c-main-primary-color);
+
+  display: none;
+
+  &__text {
+    color: var(--success-msg-color);
+
+    @include font(16px, 22px);
+
+    @include media-breakpoint-up(lg) {
+      @include font(18px, 26px);
+    }
+  }
+}

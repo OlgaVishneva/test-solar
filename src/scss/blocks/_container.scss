@@ -1,0 +1,8 @@
+.container {
+  --container-indent: var(--c-indent-container);
+
+  padding-left: var(--container-indent);
+  padding-right: var(--container-indent);
+  margin: 0 auto;
+  max-width: 1440px;
+}

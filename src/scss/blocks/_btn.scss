@@ -1,0 +1,91 @@
+.btn {
+  --btn-gap-x: 4px;
+
+  position: relative;
+  padding: calc(var(--btn-gap-x) - 2px) 32px;
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+
+  @include font(18px, 26px);
+
+  cursor: pointer;
+  vertical-align: top;
+  text-decoration: none;
+  border-style: solid;
+  border-width: 1px;
+  user-select: none;
+  border-radius: 32px;
+  color: var(--btn-color);
+  background-color: var(--btn-bg-color);
+  border-color: var(--btn-border-color);
+  transition-property: background-color, border-color;
+  transition-duration: $animation-speed;
+  transition-timing-function: $animation-function;
+  letter-spacing: -0.4px;
+
+  @include hover {
+    color: var(--btn-hover-color);
+    border-color: var(--btn-hover-border-color);
+    background-color: var(--btn-hover-bg-color);
+  }
+
+  &:active {
+    color: var(--btn-active-color);
+    border-color: var(--btn-active-border-color);
+    background-color: var(--btn-active-bg-color);
+  }
+
+  &:focus {
+    color: var(--btn-focus-color);
+    border-color: var(--btn-focus-border-color);
+    background-color: var(--btn-focus-bg-color);
+  }
+
+  &:disabled,
+  &._disabled {
+    color: var(--btn-disabled-color);
+    background-color: var(--btn-disabled-bg-color);
+    border-color: var(--btn-disabled-border-color);
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    //Button color
+    --btn-color: var(--c-base-color);
+    --btn-bg-color: var(--c-brand-primary-color);
+    --btn-border-color: var(--c-brand-primary-color);
+
+    // Button hover colors
+    --btn-hover-color: var(--c-base-color);
+    --btn-hover-bg-color: var(--c-brand-primary-color);
+    --btn-hover-border-color: var(--c-brand-primary-color);
+
+    // Button active colors
+    --btn-active-color: var(--c-base-color);
+    --btn-active-bg-color: var(--c-brand-emphasis-color);
+    --btn-active-border-color: var(--c-brand-emphasis-color);
+
+    // Button focus colors
+    --btn-focus-color: var(--c-base-color);
+    --btn-focus-bg-color: var(--c-brand-secondary-color);
+    --btn-focus-border-color: var(--c-brand-secondary-color);
+
+    // Button disabled colors
+    --btn-disabled-color: var(--c-base-color);
+    --btn-disabled-bg-color: var(--c-brand-emphasis-2-color);
+    --btn-disabled-border-color: var(--c-brand-emphasis-2-color);
+  }
+
+  &--size-large {
+    --btn-side-space: 26px;
+
+    padding: 10px var(--btn-side-space);
+
+    @include media-breakpoint-up(md) {
+      padding: 14px var(--btn-side-space);
+    }
+  }
+}

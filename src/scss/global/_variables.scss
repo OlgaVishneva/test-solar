@@ -1,0 +1,56 @@
+@import '../mixins/mixins';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+$grid-breakpoints: (
+  start: 0,
+  xs: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1328px
+);
+
+:root {
+  //Main colors
+  --c-main-rgb: #{to-rgb(#000)};
+  --c-main-color: rgb(var(--c-main-rgb));
+  --c-main-primary-color: #171717;
+  --c-main-emphasis-color: #2b323a;
+
+  //Base colors
+  --c-base-rgb: #{to-rgb(#fff)};
+  --c-base-color: rgb(var(--c-base-rgb));
+  --c-base-primary-color: #f1eded;
+  --c-base-emphasis-color: #aaadb0;
+  --c-base-emphasis-2-color: #f1edeb;
+  --c-base-thirdly-color: #808489;
+
+  //Brand
+  --c-brand-main-color: #3e9cdc;
+  --c-brand-primary-color: #fe6e36;
+  --c-brand-secondary-color: #fe8b5e;
+  --c-brand-emphasis-color: #ed5a2b;
+  --c-brand-emphasis-2-color: rgba(254 110 54/ 56%);
+
+  // System colors
+  --c-system-danger-color: #ed5a2b;
+
+  //Gradient
+  --c-gradient-color: linear-gradient(342deg, #011008 36.18%, #555 94.48%);
+
+  //Help vars
+  --c-indent-container: 16px;
+
+  @include media-breakpoint-up(md) {
+    --c-indent-container: 24px;
+  }
+}
+
+//Fonts
+$basic-family: 'Arial', sans-serif;
+
+//Animation
+$animation-speed: 300ms;
+$animation-function: ease;

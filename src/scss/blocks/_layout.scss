@@ -1,0 +1,13 @@
+.layout {
+  &._lock-scroll {
+    overflow: hidden;
+    -webkit-overflow-scrolling: none;
+  }
+
+  &__page {
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+  }
+}

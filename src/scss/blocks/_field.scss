@@ -1,0 +1,333 @@
+.field {
+  // sizes
+  --field-padding-top: 14px;
+  --field-padding-bottom: 14px;
+  --field-padding-x: 12px;
+  --field-round: 12px;
+  --field-font-size: 16px;
+  --field-line-height: 22px;
+
+  // colors
+  --field-color: #000;
+  --field-bg-color: #fff;
+  --field-label-color: #9fa0a7;
+  --field-border-color: #d5d6d8;
+  --field-outline-color: #27348b;
+  --field-placeholder-color: #9fa0a7;
+  --field-icon-color: #808489;
+
+  // hover
+  --field-hover-icon-color: #7a7b81;
+  --field-hover-border-color: #9fa0a7;
+
+  // error
+  --field-error-color: var(--c-system-danger-color);
+  --field-error-border-color: var(--c-system-danger-color);
+  --field-error-hover-border-color: var(--c-system-danger-color);
+
+  width: 100%;
+  position: relative;
+
+  @include media-breakpoint-up(lg) {
+    &:nth-child(1) {
+      grid-column: 1/3;
+    }
+  }
+
+  &._error {
+    .field__field {
+      border-bottom: 1px solid var(--field-error-border-color);
+    }
+  }
+
+  &._active {
+    .field__field {
+      border-bottom: 1px solid var(--field-error-border-color);
+    }
+  }
+
+  &__panel {
+    position: relative;
+  }
+
+  &__label {
+    margin-bottom: 8px;
+    display: inline-flex;
+    color: var(--field-label-color);
+
+    @include font(12px, 16px);
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: text;
+    user-select: none;
+  }
+
+  &__field {
+    display: flex;
+    position: relative;
+    background-color: var(--field-bg-color);
+    border-bottom: 1px solid var(--field-border-color);
+    overflow: hidden;
+  }
+
+  // вариант ._fill только через :has()
+
+  &__field:not(:has(.field__control:placeholder-shown)) {
+    .field__btn--clear {
+      width: calc(var(--field-icon-width) + var(--field-btn-offset-x));
+      opacity: 1;
+      visibility: visible;
+      translate: 0 0;
+      transition-property: color, opacity, width;
+    }
+  }
+
+  &__icon,
+  &__btn {
+    padding: var(--field-btn-padding-y) 16px;
+    width: calc(var(--field-icon-width) + var(--field-btn-offset-x));
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--field-icon-color);
+    background-color: transparent;
+    transition: $animation-speed $animation-function;
+    transition-property: color, rotate;
+  }
+
+  &__icon+.field__inner-label,
+  &__btn+.field__inner-label {
+    padding-left: 0;
+  }
+
+  &__append {
+    padding-right: calc(var(--field-padding-x) - var(--field-calc-btn-offset-x-half));
+    padding-left: var(--field-calc-btn-offset-x-half);
+  }
+
+  &__append {
+    --field-calc-btn-offset-x-half: calc(var(--field-btn-offset-x) / 2);
+
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  &__area:has(~ .field__append) .field__control {
+    // обнуляет отступ справа если есть элемент append
+    padding-right: 0;
+  }
+
+  &__btn {
+    border: none;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--field-outline-color);
+      outline-offset: -2px;
+    }
+
+    &:active {
+      color: var(--field-icon-active-color);
+    }
+
+    @include hover {
+      color: var(--field-hover-icon-color);
+    }
+
+    &._disabled,
+    &:disabled {
+      cursor: default;
+
+      @include hover {
+        color: var(--field-icon-color);
+      }
+    }
+
+    &--clear {
+      width: 0;
+      opacity: 0;
+      visibility: hidden;
+      translate: -50% 0;
+      transition-property: color, opacity, visibility, width, translate;
+    }
+  }
+
+  &__icon-img {
+    width: var(--field-icon-width);
+    height: var(--field-icon-height);
+    flex-shrink: 0;
+  }
+
+  &._fill {
+    .field__control--trigger::before {
+      opacity: 0;
+    }
+
+    .field__btn--clear {
+      width: calc(var(--field-icon-width) + var(--field-btn-offset-x));
+      opacity: 1;
+      visibility: visible;
+      translate: 0 0;
+      transition-property: color, opacity, width;
+    }
+  }
+
+  &__area {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__control {
+    width: 100%;
+    padding: var(--field-padding-top) var(--field-padding-x) var(--field-padding-bottom);
+    display: block;
+    color: var(--field-color);
+    border: none;
+    background-color: transparent;
+
+    @include font(var(--field-font-size), var(--field-line-height));
+
+    &::placeholder {
+      color: var(--field-placeholder-color);
+      opacity: 1;
+    }
+
+    &:focus-visible,
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  input.field__control {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &[type='search'],
+    &[type='number'] {
+
+      /* stylelint-disable-next-line property-no-vendor-prefix */
+      // -webkit-appearance: none;
+      appearance: none;
+
+      /* stylelint-disable-next-line property-no-vendor-prefix */
+      -moz-appearance: textfield;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:autofill,
+    &:autofill:hover,
+    &:autofill:focus {
+      border: none;
+      -webkit-text-fill-color: var(--field-color);
+
+      /* stylelint-disable-next-line property-no-vendor-prefix */
+      -webkit-box-shadow: none;
+      transition: background-color 5000s ease-in-out 0s;
+      background-color: none;
+      box-shadow: none;
+      color: var(--field-color);
+    }
+  }
+
+  &__hint {
+    @include font(12px, 16px);
+
+    color: var(--field-hint-color);
+
+    &--error {
+      color: var(--field-error-color);
+    }
+  }
+
+  &__area:has(~ .field__append) .field__control {
+    // обнуляет отступ справа если есть элемент append
+    padding-right: 0;
+  }
+
+  &__content {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+}
+
+.field--material {
+  --field-round: 12px;
+  --field-padding-top: 22px;
+  --field-padding-bottom: 4px;
+  --field-padding-x: 0;
+  --field-font-size: 16px;
+  --field-line-height: 22px;
+  --field-material-label-top-offset: 16px;
+  --field-material-label-scale: 1;
+  --field-btn-padding-y: 12px;
+
+  @include media-breakpoint-up(lg) {
+    --field-round: 16px;
+    --field-padding-top: 30px;
+    --field-padding-bottom: 12px;
+    --field-padding-x: 0;
+    --field-font-size: 16px;
+    --field-line-height: 22px;
+    --field-material-label-top-offset: 22px;
+    --field-material-label-scale: 1;
+    --field-btn-padding-y: 20px;
+  }
+
+  .field__label {
+    margin: 0;
+    position: absolute;
+    inset: 0 auto auto var(--field-padding-x);
+    transform: translate(0, var(--field-material-label-top-offset)) scale(var(--field-material-label-scale));
+
+    @include font(var(--field-font-size), var(--field-line-height));
+
+    transform-origin: 0 0;
+    transition: transform $animation-speed $animation-function;
+  }
+
+  .field__control {
+    &::placeholder {
+      opacity: 0;
+    }
+
+    &:focus~.field__label,
+    &:not(:placeholder-shown)~.field__label {
+      --field-material-label-top-offset: 5px;
+      --field-material-label-scale: 0.75;
+    }
+  }
+}
+
+.field__control[required]~.field__label::after {
+  content: '*';
+  color: var(--field-icon-color);
+  font-size: 12px;
+  vertical-align: super;
+  margin-left: 1px;
+  display: inline-block;
+  transform: translateY(-2px);
+}
+
+.field--material .field__control[required]~.field__label::after {
+  font-size: 15px;
+  transform: translateY(-3px);
+
+  @include media-breakpoint-up(lg) {
+    font-size: 12px;
+    transform: translateY(-4px);
+  }
+}

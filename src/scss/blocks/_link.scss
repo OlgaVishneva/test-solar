@@ -1,0 +1,13 @@
+.link {
+  --link-color: var(--c-brand-primary-color);
+
+  color: var(--link-color);
+  transition: $animation-speed $animation-function;
+  transition-property: opacity;
+
+  @include font(12px, 16px);
+
+  @include hover {
+    opacity: 0.8;
+  }
+}

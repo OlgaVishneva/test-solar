@@ -1,0 +1,99 @@
+.promo-card {
+    --promo-card-bg-color: var(--c-base-emphasis-2-color);
+    --promo-card-text-color: var(--c-main-color);
+
+    background-color: var(--promo-card-bg-color);
+    padding: 16px 9px 22px;
+
+    @include media-breakpoint-up(md) {
+        padding: 20px 20px 24px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: 24px 24px 20px;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        width: 150px;
+        height: 100px;
+        margin: 0 auto 16px;
+        background: no-repeat center / contain;
+
+        @include media-breakpoint-up(md) {
+            width: 185px;
+            height: 150px;
+            margin: 0 auto 22px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            width: 210px;
+            height: 155px;
+            margin: 0 auto 24px;
+        }
+    }
+
+    &--pic-cube::before {
+        background-image: url('/img/icons/cube.svg');
+    }
+
+    &--pic-down::before {
+        background-image: url('/img/icons/down.svg');
+    }
+
+    &--pic-star::before {
+        background-image: url('/img/icons/star.svg');
+    }
+
+    &--pic-time::before {
+        background-image: url('/img/icons/time.svg');
+    }
+
+    &--pic-arrow::before {
+        background-image: url('/img/icons/arrow-1.svg');
+    }
+
+    &--pic-control::before {
+        background-image: url('/img/icons/control.svg');
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+
+        @include media-breakpoint-up(md) {
+            gap: 10px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            gap: 12px;
+        }
+    }
+
+    &__title {
+        @include font(18px, 24px);
+
+        color: var(--promo-card-text-color);
+
+        @include media-breakpoint-up(md) {
+            @include font(18px, 26px);
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include font(22px, 28px);
+        }
+    }
+
+    &__text {
+        @include font(16px, 20px);
+
+        color: var(--promo-card-text-color);
+
+        @include media-breakpoint-up(lg) {
+            @include font(18px, 24px);
+        }
+    }
+}

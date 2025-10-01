@@ -1,0 +1,168 @@
+.toggle {
+  width: 20px;
+  height: 20px;
+  display: inline-grid;
+  place-content: center;
+  flex-shrink: 0;
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+
+  &::before {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    border: var(--toggle-border-width) solid var(--toggle-off-border-color);
+    background-color: var(--toggle-off-bg-color);
+    transition: $animation-speed $animation-function;
+    transition-property: border-color, background-color;
+  }
+
+  &::after {
+    box-sizing: border-box;
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--toggle-on-icon-color);
+    transform: translate(-50%, -50%);
+    transition: $animation-speed $animation-function;
+    transition-property: opacity;
+  }
+
+  &:checked {
+    &::before {
+      background-color: var(--toggle-on-bg-color);
+      border-color: var(--toggle-on-border-color);
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  @include hover {
+    &::before {
+      background-color: var(--toggle-off-hover-bg-color);
+      border-color: var(--toggle-off-hover-border-color);
+    }
+
+    &:checked::before {
+      background-color: var(--toggle-on-hover-bg-color);
+      border-color: var(--toggle-on-hover-border-color);
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: var(--toggle-off-active-bg-color);
+      border-color: var(--toggle-off-active-border-color);
+    }
+
+    &:checked::before {
+      background-color: var(--toggle-on-active-bg-color);
+      border-color: var(--toggle-on-active-border-color);
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--toggle-off-focus-shadow-color);
+
+    &:checked {
+      outline: none;
+      box-shadow: var(--toggle-on-focus-shadow-color);
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &::before {
+      background-color: var(--toggle-off-disabled-bg-color);
+      border-color: var(--toggle-off-disabled-border-color);
+    }
+
+    &::after {
+      background-color: var(--toggle-off-disabled-icon-color);
+    }
+
+    &:checked {
+      cursor: not-allowed;
+
+      &::before {
+        background-color: var(--toggle-on-disabled-bg-color);
+        border-color: var(--toggle-on-disabled-border-color);
+      }
+
+      &::after {
+        background-color: var(--toggle-on-disabled-icon-color);
+      }
+    }
+  }
+
+  &._error:not(:disabled):not(:checked) {
+    &::before {
+      border-width: var(--toggle-error-border-width);
+      border-color: var(--toggle-error-border-color);
+    }
+  }
+
+  &--checkbox-primary {
+    --toggle-radius: 4px;
+    --toggle-border-width: 1px;
+
+    // On
+    --toggle-on-border-color: #fe6e36;
+    --toggle-on-bg-color: #fff;
+    --toggle-on-icon-color: #fe6e36;
+
+    // On Hover
+    --toggle-on-hover-border-color: #fe6e36;
+    --toggle-on-hover-bg-color: #fff;
+
+    // On Active
+    --toggle-on-active-border-color: #fe6e36;
+    --toggle-on-active-bg-color: #fff;
+
+    // On Disabled
+    --toggle-on-disabled-border-color: #cbcbce;
+    --toggle-on-disabled-bg-color: #cbcbce;
+    --toggle-on-disabled-icon-color: #9fa0a7;
+
+    // Off
+    --toggle-off-border-color: #9fa0a7;
+    --toggle-off-bg-color: var(--c-main-secondary-color);
+
+    // Off Hover
+    --toggle-off-hover-border-color: #fe6e36;
+    --toggle-off-hover-bg-color: var(--c-main-secondary-color);
+
+    // Off Active
+    --toggle-off-active-border-color: #fe6e36;
+    --toggle-off-active-bg-color: var(--c-base-primary-emphasis-color);
+
+    // Off Disabled
+    --toggle-off-disabled-border-color: #cbcbce;
+    --toggle-off-disabled-bg-color: #cbcbce;
+    --toggle-off-disabled-icon-color: #9fa0a7;
+
+    // Error
+    --toggle-error-border-width: var(--c-system-danger-color);
+    --toggle-error-border-color: var(--c-system-danger-color);
+    --toggle-hint-color-color: var(--c-system-danger-color);
+
+    &::after {
+      mask: url('/img/icons/checkbox-line.svg') no-repeat center/15px;
+    }
+  }
+}
