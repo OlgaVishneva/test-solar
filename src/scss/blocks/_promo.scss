@@ -27,6 +27,7 @@
     margin-right: calc(-1 * var(--c-indent-container));
     margin-bottom: 32px;
     overflow: hidden;
+    cursor: pointer;
 
     @include media-breakpoint-up(md) {
       margin-bottom: 56px;
